@@ -1,13 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import reducers from './reducers';
+import rootReducers from './reducers';
+import { Header } from './views/common';
+import LibraryList from './views/LibraryList';
 
-export default () => (
-    <Provider store={createStore(reducers)}>
+const App = () => (
+    <Provider store={createStore(rootReducers)}>
         <View>
-            <Text>Hello world</Text>
+            <Header headerText='Intro to Redux' />
+            <LibraryList />
         </View>
     </Provider>
 );
+
+export default App;
