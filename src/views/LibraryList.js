@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { 
     ListView,
-    Text,
     View
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -28,7 +27,6 @@ class LibraryList extends Component {
                     dataSource={this.dataSource} 
                     renderRow={this.renderRow}    
                 />
-                <Text>HELLO</Text>
             </View>
         );
     }
