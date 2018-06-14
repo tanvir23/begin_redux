@@ -22,7 +22,7 @@ class LibraryList extends Component {
     render() {
         console.log('props', this.props);
         return (
-            <View>
+            <View style={{ flex: 1 }}>
                 <ListView 
                     dataSource={this.dataSource} 
                     renderRow={this.renderRow}    

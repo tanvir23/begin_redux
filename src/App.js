@@ -8,7 +8,7 @@ import LibraryList from './views/LibraryList';
 
 const App = () => (
     <Provider store={createStore(rootReducers)}>
-        <View>
+        <View style={{ flex: 1 }}>
             <Header headerText='Intro to Redux' />
             <LibraryList />
         </View>
