@@ -11,6 +11,15 @@ class ListItem extends Component {
   onPress() {
     return this.props.selectLibrary(this.props.library.id);
   }
+
+  renderDescription() {
+    const { library, expended } = this.props;
+
+    if (expended) {
+      return <Text>{library.description}</Text>;
+    }
+  }
+
   render() {
     const { title } = this.props.library;
     return (
@@ -21,6 +30,7 @@ class ListItem extends Component {
           <CardSection>
               <Text style={styles.titleStyle}>{title}</Text>
           </CardSection>
+          {this.renderDescription()}
         </View>
       </TouchableWithoutFeedback>
     );
@@ -38,5 +48,13 @@ const styles = {
 //   return bindActionCreators({ SelectLibrary }, dispatch);
 // }
 
-export default connect(null, actions)(ListItem);
+const mapStateToProps = (state, ownProps) => {
+  const expended = (state.selectedID === ownProps.library.id);
+
+  return {
+    expended
+  };
+};
+
+export default connect(mapStateToProps, actions)(ListItem);
 // export default connect(null, mapDispatchToProps)(ListItem);

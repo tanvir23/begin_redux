@@ -1,6 +1,10 @@
 
-export default (state = {}, action) => {
-    console.log(action);
-    return state;
+export default (state = null, action) => {
+    switch (action.type) {
+        case 'library_selected':
+            return action.payload;
+        default:
+            return state;
+    }
 };
 
